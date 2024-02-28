@@ -49,17 +49,7 @@
 								<?= $modul ?>
 							</div>
 							<!--end::Content wrapper-->
-							<!--begin::Footer-->
-							<div id="kt_app_footer" class="app-footer align-items-center justify-content-between">
-								<!--begin::Copyright-->
-								<div class="text-dark order-2 order-md-1 mb-5">
-									<span class="text-muted fw-semibold me-1">2024 &copy; Si Pandai dibuat oleh </span>
-									<a href="https://tik.untad.ac.id/" target="_blank" class="text-gray-800 text-hover-primary">UPA TIK</a>
-								</div>
-								<!--end::Copyright-->
-								<!--end::Menu-->
-							</div>
-							<!--end::Footer-->
+							<?= $CI->load->view('main/footer', '', TRUE); ?>
 						</div>
 						<!--end:::Main-->
 					</div>
@@ -78,35 +68,7 @@
 			</i>
 		</div>
 		<!--end::Scrolltop-->
-		<script>
-			var hostUrl = "<?= base_url('assets/') ?>";
-		</script>
-		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-		<script src="<?= base_url('assets/plugins/global/plugins.bundle.js') ?>"></script>
-		<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
-		<!--end::Global Javascript Bundle-->
-		<!--begin::Vendors Javascript(used for this page only)-->
-		<script src="<?= base_url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') ?>"></script>
-		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
-		<script src="<?= base_url('assets/plugins/custom/datatables/datatables.bundle.js') ?>"></script>
-		<!--end::Vendors Javascript-->
-		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="<?= base_url('assets/js/widgets.bundle.js') ?>"></script>
-		<script src="<?= base_url('assets/js/custom/widgets.js') ?>"></script>
-		<script src="<?= base_url('assets/js/custom/apps/chat/chat.js') ?>"></script>
-		<script src="<?= base_url('assets/js/custom/utilities/modals/users-search.js') ?>"></script>
-		<!--end::Custom Javascript-->
-		<!--end::Javascript-->
+		<?= $CI->load->view('main/js', '', TRUE); ?>
 	</body>
 	<!--end::Body-->
 </html>
