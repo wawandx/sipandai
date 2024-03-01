@@ -15,8 +15,8 @@
 				</button>
 				<!--end::Header secondary toggle-->
 				<!--begin::Logo-->
-				<a href="../../demo22/dist/index.html" class="d-flex align-items-center">
-					<img alt="Logo" src="<?= base_url('assets/media/logos/demo22.png') ?>" class="h-25px h-lg-30px" />
+				<a href="<?= base_url() ?>" class="d-flex align-items-center">
+					<img alt="Logo" src="<?= base_url('assets/media/logos/demo22.png') ?>" class="h-50px" />
 				</a>
 				<!--end::Logo-->
 			</div>
@@ -54,9 +54,8 @@
 							<!--end::Avatar-->
 							<!--begin::Username-->
 							<div class="d-flex flex-column">
-								<div class="fw-bold d-flex align-items-center fs-5">Max Smith
-								<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span></div>
-								<a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
+								<div class="fw-bold d-flex align-items-center fs-5"><?= $this->session->fullname ?></div>
+								<div class="fw-semibold text-muted text-hover-primary fs-7"><?= $this->session->level_name ?></div>
 							</div>
 							<!--end::Username-->
 						</div>
@@ -64,7 +63,7 @@
 					<!--end::Menu item-->
 					<!--begin::Menu item-->
 					<div class="menu-item px-5">
-						<a href="../../demo22/dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
+						<a href="<?= base_url('auth/logout') ?>" class="menu-link px-5">Sign Out</a>
 					</div>
 					<!--end::Menu item-->
 				</div>

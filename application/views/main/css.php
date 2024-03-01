@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="<?= base_url('assets/media/logos/favicon.ico') ?>" />
+<link rel="shortcut icon" href="<?= base_url('assets/media/logos/favicon.png') ?>" />
 <!--begin::Fonts(mandatory for all pages)-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 <link href="<?= base_url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') ?>" rel="stylesheet" type="text/css" />

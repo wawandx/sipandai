@@ -9,6 +9,19 @@
 				<!--begin:Menu item-->
 				<div class="menu-item">
 					<!--begin:Menu link-->
+					<a class="menu-link py-3" href="<?= base_url('dashboard'); ?>">
+						<span class="menu-title">
+							<span class="menu-text">Home</span>
+							<span class="menu-desc">Menu Utama</span>
+						</span>
+					</a>
+					<!--end:Menu link-->
+				</div>
+				<!--end:Menu item-->
+
+				<!--begin:Menu item-->
+				<div class="menu-item">
+					<!--begin:Menu link-->
 					<a class="menu-link py-3" href="<?= base_url('data_guru'); ?>">
 						<span class="menu-title">
 							<span class="menu-text">Data Guru</span>

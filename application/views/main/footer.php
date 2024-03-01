@@ -3,7 +3,7 @@
 	<!--begin::Copyright-->
 	<div class="text-dark order-2 order-md-1 mb-5">
 		<span class="text-muted fw-semibold me-1">2024 &copy; Si Pandai dibuat oleh </span>
-		<a href="https://tik.untad.ac.id/" target="_blank" class="text-gray-800 text-hover-primary">UPA TIK</a>
+		<a href="<?= base_url() ?>" target="_blank" class="text-gray-800 text-hover-primary">Si PANDAI</a>
 	</div>
 	<!--end::Copyright-->
 	<!--end::Menu-->
