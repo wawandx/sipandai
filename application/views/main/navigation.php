@@ -84,6 +84,18 @@
 				</div>
 				<!--end:Menu item-->
 
+				<!--begin:Menu item-->
+				<div class="menu-item">
+					<!--begin:Menu link-->
+					<a class="menu-link py-3" href="<?= base_url('manajemen_users'); ?>">
+						<span class="menu-title">
+							<span class="menu-text">Users</span>
+							<span class="menu-desc">Manajemen Users</span>
+						</span>
+					</a>
+					<!--end:Menu link-->
+				</div>
+				<!--end:Menu item-->
 			</div>
 			<!--end::Menu-->
 		</div>

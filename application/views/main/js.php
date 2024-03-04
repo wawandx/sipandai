@@ -27,3 +27,40 @@
 <script src="<?= base_url('assets/js/custom/utilities/modals/users-search.js') ?>"></script>
 <!--end::Custom Javascript-->
 <!--end::Javascript-->
+<script>
+	<?php
+    if($this->session->flashdata('success_save')){
+  ?>
+      Swal.fire({
+        text: "Data berhasil disimpan",
+        icon: "success",
+    	});
+  <?php
+      $this->session->unset_userdata('success_save');
+    } else if($this->session->flashdata('error_save')){
+  ?>
+      Swal.fire({
+        text: "Data gagal disimpan",
+        icon: "error",
+    	});
+  <?php
+      $this->session->unset_userdata('error_save');        
+    } else if($this->session->flashdata('success_update')){
+  ?>
+      Swal.fire({
+        text: "Data berhasil dirubah",
+        icon: "success",
+    	});
+  <?php
+      $this->session->unset_userdata('success_update');
+    }  else if($this->session->flashdata('error_update')){
+  ?>
+      Swal.fire({
+        text: "Data gagal dirubah",
+        icon: "error",
+    	});
+  <?php
+      $this->session->unset_userdata('error_update');
+    }
+  ?>
+</script>
