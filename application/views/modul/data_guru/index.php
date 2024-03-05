@@ -31,42 +31,48 @@
 
 					<div class="card-body pt-6">
 						<div class="table-responsive">
-							<table class="table">
-								<thead style="text-align: center;">
-									<tr class="fw-bold fs-5 text-gray-900">
+							<table id="table-sipandai" class="table">
+								<thead>
+									<tr class="fw-bold fs-5 text-gray-900" >
 										<th>No</th>
-										<th>NIP</th>
-										<th>Nama</th>
-										<th>No Hanphone</th>
-										<th>Tempat Lahir</th>
-										<th>Tanggal Lahir</th>
-										<th>Alamat</th>
-										<th>Action</th>
+										<th style="text-align: center;">NIP</th>
+										<th style="text-align: center;">Nama</th>
+										<th style="text-align: center;">Email</th>
+										<th style="text-align: center;">No Hanphone</th>
+										<th style="text-align: center;">Tempat Lahir</th>
+										<th style="text-align: center;">Tanggal Lahir</th>
+										<th style="text-align: center;">Alamat</th>
+										<th style="text-align: center;">Action</th>
 									</tr>
 								</thead>
 								<tbody style="text-align: center;">
+								<?php
+									$no = 1;
+									foreach ($data->result() as $value) {
+									
+									?>
 									<tr>
-										<td>1</td>
-										<td>7878279120</td>
-										<td>Nurlinda</td>
-										<td>0853-xxxx-xxxx</td>
-										<td>Palu</td>
-										<td>22-okt-1993</td>
-										<td>Jln. Sisingamangaraja</td>
+										<td><?= $no++ ?></td>
+										<td><?= $value->nip ?></td>
+										<td><?= $value->nama ?></td>
+										<td><?= $value->email ?></td>
+										<td><?= $value->phone ?></td>
+										<td><?= $value->tmpat_lahir ?></td>
+										<td><?= $value->tgal_lahir ?></td>
+										<td><?= $value->alamat ?></td>
 										<td>
 											<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
-												<a href="<?= base_url('data_guru/get_edit'); ?>" class="btn btn-sm btn-light-warning">
+												<a href="<?= base_url('data_guru/get_edit/'.$value->nip); ?>" class="btn btn-sm btn-light-warning">
 													Edit
 												</a>
 											</span>
 
-											<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
-												<a href="#" class="btn btn-sm btn-light-danger" onclick="return confirm('Anda Yakin menghapus!!')">
-													Hapus
-												</a>
-											</span>
+											<a href='javascript:deleteData("<?= $value->nip ?>");' class='btn btn-sm btn-light-danger'>Delete</a>
 										</td>
 									</tr>
+								<?php
+									}
+								?>
 								</tbody>
 							</table>
 						</div>
@@ -83,3 +89,51 @@
 	<!--end::Row-->
 </div>
 <!--end::Content-->
+<script>
+	function deleteData(nip) {
+		Swal.fire({
+			html: `Yakin ingin menghapus data?`,
+			icon: "warning",
+			buttonsStyling: false,
+			showCancelButton: true,
+			confirmButtonText: "Iya, Hapus",
+			cancelButtonText: 'Batal',
+			customClass: {
+					confirmButton: "btn btn-primary",
+					cancelButton: 'btn btn-danger'
+			}
+    }).then((value) => {
+			if(value.isConfirmed) {
+				var request = $.ajax({
+					url: "<?= base_url('Data_guru/delete'); ?>",
+					method: "POST",
+					data: { id },
+					dataType: "json"
+				});
+				
+				request.done(function( msg ) {
+					if (msg.status == 'success') {
+						Swal.fire(
+							'Berhasil!',
+							'Data berhasil dihapus .',
+							'success'
+						)
+						.then((success_msg) => {
+							window.location = "<?= base_url('Data_guru/index'); ?>";
+						})
+					} else {
+						Swal.fire(
+							'Failed!',
+							'Data gagal dihapus.',
+							'error'
+						)
+					}
+				});
+				
+				request.fail(function( jqXHR, textStatus ) {
+					alert( "Request failed: " + textStatus );
+				});
+			}
+		});
+	}
+</script>

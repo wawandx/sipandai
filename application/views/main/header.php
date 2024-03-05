@@ -17,6 +17,7 @@
 				<!--begin::Logo-->
 				<a href="<?= base_url() ?>" class="d-flex align-items-center">
 					<img alt="Logo" src="<?= base_url('assets/media/logos/demo22.png') ?>" class="h-50px" />
+					<small class="text-white fs-35 fw-bold lh-1 mb-1" style="padding-left: 15px; font-size: large;">SI PANDAI</small>
 				</a>
 				<!--end::Logo-->
 			</div>

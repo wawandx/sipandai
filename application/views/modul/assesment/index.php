@@ -11,11 +11,50 @@
 					<!--begin::Title-->
 					<h3 class="fw-bold text-gray-900 m-0">Management Assesment</h3>
 					<!--end::Title-->
+
+					<div class="card-header border-0 pt-6">
+						<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+							<!--begin::Add user-->
+								<a href="<?= base_url('data_assesment/data_add'); ?>" class="btn btn-primary">
+									<i class="ki-duotone ki-plus fs-2"></i>Add data
+								</a>
+							<!--end::Add user-->
+						</div>
+					</div>
 				</div>
 				<!--end::Header-->
 				<!--begin::Body-->
 				<div class="card-body pt-2">
-					<p>Isi Content</p>	
+					<div class="table-responsive">
+						<table id="table-sipandai" class="table">
+							<thead style="text-align: center;">
+								<tr class="fw-bold fs-5 text-gray-900">
+									<th>Komponen</th>
+									<th>Indikator</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody style="text-align: center;">
+								<tr>
+									<td>isi komponen</td>
+									<td>indikator</td>
+									<td>
+										<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
+											<a href="<?= base_url('#'); ?>" class="btn btn-sm btn-light-warning">
+												Edit
+											</a>
+										</span>
+
+										<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
+											<a href="#" class="btn btn-sm btn-light-danger" onclick="return confirm('Anda Yakin menghapus!!')">
+												Hapus
+											</a>
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
 				</div>
 				<!--end: Card Body-->
 			</div>

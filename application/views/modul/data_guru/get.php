@@ -30,7 +30,7 @@
                                         <!--begin::Card body-->
                                         <div class="card-body pt-5">
                                             <!--begin::Form-->
-                                            <form class="form" action="<?= base_url('data_guru/data_update'); ?>" method="post">
+                                            <form class="form" action="<?= base_url('data_guru/data_update/'.$data->nip); ?>" method="post">
                                                 
                                                 <!--begin::Input group-->
                                                 <div class="fv-row mb-7">
@@ -41,7 +41,7 @@
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="text" class="form-control form-control-solid" name="nip" />
+                                                    <input type="text" class="form-control form-control-solid" name="nip" value="<?= $data->nip ?>" require readonly />
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->
@@ -55,7 +55,7 @@
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="text" class="form-control form-control-solid" name="nama" value="" />
+                                                    <input type="text" class="form-control form-control-solid" name="nama" value="<?= $data->nama ?>" />
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->
@@ -73,7 +73,7 @@
                                                             <!--end::Label-->
 
                                                             <!--begin::Input-->
-                                                            <input type="email" class="form-control form-control-solid" name="email" value="" />
+                                                            <input type="email" class="form-control form-control-solid" name="email" value="<?= $data->email ?>" />
                                                             <!--end::Input-->
                                                         </div>
                                                         <!--end::Input group-->
@@ -90,7 +90,7 @@
                                                             </label>
                                                             <!--end::Label-->
                                                             <!--begin::Input-->
-                                                            <input type="text" class="form-control form-control-solid" name="phone" value="" require/>
+                                                            <input type="text" class="form-control form-control-solid" name="phone" value="<?= $data->phone ?>"/>
                                                             <!--end::Input-->
                                                         </div>
                                                         <!--end::Input group-->
@@ -110,7 +110,7 @@
                                                             </label>
                                                             <!--end::Label-->
                                                             <!--begin::Input-->
-                                                            <input type="text" class="form-control form-control-solid" name="tempat_lahir" value="" />
+                                                            <input type="text" class="form-control form-control-solid" name="tmpat_lahir" value="<?= $data->tmpat_lahir ?>" />
                                                             <!--end::Input-->
                                                         </div>
                                                         <!--end::Input group-->
@@ -127,7 +127,7 @@
                                                             <!--end::Label-->
                                                             <div class="w-100">
                                                                 <!--begin::date-->
-                                                               <input type="date" class="form-control form-control-solid" name="tgal_lahir">
+                                                               <input type="date" class="form-control form-control-solid" name="tgal_lahir" value="<?= $data->tgal_lahir ?>">
                                                                 <!--end::date-->
                                                             </div>
                                                         </div>
@@ -144,7 +144,7 @@
                                                     </label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" class="form-control form-control-solid" name="alamat"></input>
+                                                    <input type="text" class="form-control form-control-solid" name="alamat" value="<?= $data->alamat ?>"></input>
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->

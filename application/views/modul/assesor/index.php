@@ -31,16 +31,12 @@
 
 					<div class="card-body pt-6">
 						<div class="table-responsive">
-							<table class="table">
+							<table id="table-sipandai" class="table">
 								<thead style="text-align: center;">
 									<tr class="fw-bold fs-5 text-gray-900">
 										<th>No</th>
 										<th>NIP</th>
 										<th>Nama</th>
-										<th>No Hanphone</th>
-										<th>Tempat Lahir</th>
-										<th>Tanggal Lahir</th>
-										<th>Alamat</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -49,10 +45,6 @@
 										<td>1</td>
 										<td>7878279120</td>
 										<td>Nurlinda</td>
-										<td>0853-xxxx-xxxx</td>
-										<td>Palu</td>
-										<td>22-okt-1993</td>
-										<td>Jln. Sisingamangaraja</td>
 										<td>
 											<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
 												<a href="<?= base_url('#'); ?>" class="btn btn-sm btn-light-warning">
