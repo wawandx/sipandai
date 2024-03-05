@@ -30,18 +30,18 @@
                                         <!--begin::Card body-->
                                         <div class="card-body pt-5">
                                             <!--begin::Form-->
-                                            <form class="form" action="<?= base_url('data_assesor/data_save'); ?>" method="post">
+                                            <form class="form" action="<?= base_url('data_assesment/data_save'); ?>" method="post">
                                                 
                                                 <!--begin::Input group-->
                                                 <div class="fv-row mb-7">
                                                     <!--begin::Label-->
                                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                                        <span class="required">NIP</span>
+                                                        <span class="required">Komponen</span>
                                                     </label>
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="text" class="form-control form-control-solid" name="nip" />
+                                                    <input type="text" class="form-control form-control-solid" name="komponen" />
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->
@@ -50,12 +50,12 @@
                                                 <div class="fv-row mb-7">
                                                     <!--begin::Label-->
                                                     <label class="fs-6 fw-semibold form-label mt-3">
-                                                        <span class="required">Nama</span>
+                                                        <span class="required">Indikator</span>
                                                     </label>
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="text" class="form-control form-control-solid" name="nama" value="" />
+                                                    <input type="text" class="form-control form-control-solid" name="indikator" value="" />
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->
