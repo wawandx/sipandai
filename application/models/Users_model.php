@@ -12,7 +12,7 @@ class Users_model extends CI_Model
 
 	function get_user($username)
 	{
-		$query = $this->db->query("SELECT * FROM users WHERE username = '$username'");
+		$query = $this->db->query("SELECT u.*, l.level FROM users u LEFT JOIN level l ON u.id_level = l.id WHERE username = '$username'");
 		return $query;
 	}
 

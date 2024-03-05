@@ -40,8 +40,24 @@
 					<div class="d-flex flex-center flex-column flex-lg-row-fluid">
 						<!--begin::Wrapper-->
 						<div class="w-lg-500px p-10">
+							<?php
+								if (isset($error)) {
+							?>
+								<div class="alert alert-danger dark alert-dismissible fade show m-b-20" role="alert" style="width: 100%;overflow-wrap: break-word;">
+									<div class="row">
+										<div class="col-md-11">
+											<?= $error; ?>
+										</div>
+										<div class="col-md-1">
+											<button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close" style="padding-top: 10px"></button>
+										</div>
+									</div>
+								</div>
+							<?php
+								}
+							?>
 							<!--begin::Form-->
-							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="<?= base_url('auth/proc_login') ?>">
+							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" method="post" action="<?= base_url('auth/proc_login') ?>">
 								<!--begin::Heading-->
 								<div class="text-center mb-11">
 									<!--begin::Title-->

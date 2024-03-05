@@ -31,8 +31,8 @@
 				<div class="btn btn-flex align-items-center bg-hover-white bg-hover-opacity-10 py-2 ps-3 pe-1" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
 					<!--begin::Name-->
 					<div class="d-none d-md-flex flex-column align-items-end justify-content-center me-2 me-md-4">
-						<span class="text-white fs-8 fw-bold lh-1 mb-1">Max</span>
-						<span class="text-white fs-8 opacity-75 fw-semibold lh-1">UX Designer</span>
+						<span class="text-white fs-8 fw-bold lh-1 mb-1"><?= $this->session->fullname ?></span>
+						<span class="text-white fs-8 opacity-75 fw-semibold lh-1"><?= $this->session->level ?></span>
 					</div>
 					<!--end::Name-->
 					<!--begin::Symbol-->
@@ -55,7 +55,7 @@
 							<!--begin::Username-->
 							<div class="d-flex flex-column">
 								<div class="fw-bold d-flex align-items-center fs-5"><?= $this->session->fullname ?></div>
-								<div class="fw-semibold text-muted text-hover-primary fs-7"><?= $this->session->level_name ?></div>
+								<div class="fw-semibold text-muted text-hover-primary fs-7"><?= $this->session->level ?></div>
 							</div>
 							<!--end::Username-->
 						</div>

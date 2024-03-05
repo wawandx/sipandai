@@ -24,7 +24,7 @@ class Manajemen_users extends CI_Controller {
 
 	public function post()
 	{
-		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('fullname', 'Nama Lengkap', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
