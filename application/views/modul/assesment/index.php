@@ -27,31 +27,33 @@
 				<div class="card-body pt-2">
 					<div class="table-responsive">
 						<table id="table-sipandai" class="table">
-							<thead style="text-align: center;">
+							<thead>
 								<tr class="fw-bold fs-5 text-gray-900">
-									<th>Komponen</th>
-									<th>Indikator</th>
-									<th>Action</th>
+									<th style="text-align: center;">No</th>
+									<th style="text-align: center;">Komponen</th>
+									<th style="text-align: center;">Indikator</th>
+									<th style="text-align: center;">Action</th>
 								</tr>
 							</thead>
-							<tbody style="text-align: center;">
+							<tbody>
+							<?php
+								$no = 1;
+								foreach ($data->result() as $value) { ?>
 								<tr>
-									<td>isi komponen</td>
-									<td>indikator</td>
-									<td>
+									<td style="text-align: center;"><?= $no++ ?></td>
+									<td><?= $value->komponen ?></td>
+									<td><?= $value->indikator ?></td>
+									<td style="text-align: center;">
 										<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
-											<a href="<?= base_url('#'); ?>" class="btn btn-sm btn-light-warning">
+											<a href="<?= base_url('data_assesment/get_edit/'.$value->id); ?>" class="btn btn-sm btn-light-warning">
 												Edit
 											</a>
 										</span>
 
-										<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
-											<a href="#" class="btn btn-sm btn-light-danger" onclick="return confirm('Anda Yakin menghapus!!')">
-												Hapus
-											</a>
-										</span>
+										<a href='javascript:deleteData("<?= $value->id ?>");' class='btn btn-sm btn-light-danger'>Hapus</a>
 									</td>
 								</tr>
+							<?php } ?>
 							</tbody>
 						</table>
 					</div>	
@@ -65,3 +67,52 @@
 	<!--end::Row-->
 </div>
 <!--end::Content-->
+
+<script>
+	function deleteData(id) {
+		Swal.fire({
+			html: `Yakin ingin menghapus data?`,
+			icon: "warning",
+			buttonsStyling: false,
+			showCancelButton: true,
+			confirmButtonText: "Iya, Hapus",
+			cancelButtonText: 'Batal',
+			customClass: {
+					confirmButton: "btn btn-primary",
+					cancelButton: 'btn btn-danger'
+			}
+    }).then((value) => {
+			if(value.isConfirmed) {
+				var request = $.ajax({
+					url: "<?= base_url('data_assesment/delete'); ?>",
+					method: "POST",
+					data: { id },
+					dataType: "json"
+				});
+				
+				request.done(function( msg ) {
+					if (msg.status == 'success') {
+						Swal.fire(
+							'Berhasil!',
+							'Data berhasil dihapus .',
+							'success'
+						)
+						.then((success_msg) => {
+							window.location = "<?= base_url('data_assesment/index'); ?>";
+						})
+					} else {
+						Swal.fire(
+							'Failed!',
+							'Data gagal dihapus.',
+							'error'
+						)
+					}
+				});
+				
+				request.fail(function( jqXHR, textStatus ) {
+					alert( "Request failed: " + textStatus );
+				});
+			}
+		});
+	}
+</script>

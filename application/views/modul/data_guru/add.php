@@ -9,7 +9,7 @@
 				<!--begin::Header-->
 				<div class="card-header align-items-center border-0">
 					<!--begin::Title-->
-					<h3 class="fw-bold text-gray-900 m-0"><?php echo $title_modal; ?></h3>
+					<h3 class="fw-bold text-gray-900 m-0">Add Data Guru</h3>
 					<!--end::Title-->
 				</div>
 				<!--end::Header-->

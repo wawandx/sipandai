@@ -30,7 +30,7 @@
                                         <!--begin::Card body-->
                                         <div class="card-body pt-5">
                                             <!--begin::Form-->
-                                            <form class="form" action="<?= base_url('data_guru/data_update/'.$data->nip); ?>" method="post">
+                                            <form class="form" action="<?= base_url('data_guru/data_update/'.$data->id); ?>" method="post">
                                                 
                                                 <!--begin::Input group-->
                                                 <div class="fv-row mb-7">

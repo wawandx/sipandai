@@ -12,15 +12,15 @@
 					<h3 class="fw-bold text-gray-900 m-0">Data Assesor</h3>
 					<!--end::Title-->
 
-					<div class="card-header border-0 pt-6">
+					<!-- <div class="card-header border-0 pt-6">
 						<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-							<!--begin::Add user-->
-								<a href="<?= base_url('data_assesor/data_add'); ?>" class="btn btn-primary">
+							begin::Add user-->
+								<!-- <a href="<?= base_url('data_assesor/data_add'); ?>" class="btn btn-primary">
 									<i class="ki-duotone ki-plus fs-2"></i>Add data
-								</a>
+								</a> -->
 							<!--end::Add user-->
-						</div>
-					</div>
+						<!--</div>
+					</div> -->
 				</div>
 				<div>
 					
@@ -32,20 +32,23 @@
 					<div class="card-body pt-6">
 						<div class="table-responsive">
 							<table id="table-sipandai" class="table">
-								<thead style="text-align: center;">
+								<thead>
 									<tr class="fw-bold fs-5 text-gray-900">
-										<th>No</th>
-										<th>NIP</th>
-										<th>Nama</th>
-										<th>Action</th>
+										<th style="text-align: center;">No</th>
+										<th style="text-align: center;">NIP</th>
+										<th style="text-align: center;">Nama</th>
+										<!-- <th>Action</th> -->
 									</tr>
 								</thead>
 								<tbody style="text-align: center;">
+								<?php
+									$no = 1;
+									foreach ($data->result() as $value) { ?>
 									<tr>
-										<td>1</td>
-										<td>7878279120</td>
-										<td>Nurlinda</td>
-										<td>
+										<td><?= $no++ ?></td>
+										<td>nip</td>
+										<td><?= $value->fullname ?></td>
+										<!-- <td>
 											<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
 												<a href="<?= base_url('#'); ?>" class="btn btn-sm btn-light-warning">
 													Edit
@@ -57,8 +60,9 @@
 													Hapus
 												</a>
 											</span>
-										</td>
+										</td> -->
 									</tr>
+								<?php } ?>
 								</tbody>
 							</table>
 						</div>
