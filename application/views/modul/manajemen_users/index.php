@@ -16,7 +16,7 @@
 				<!--begin::Body-->
 				<div class="card-body pt-2">
 					<a href="<?= base_url('manajemen_users/add') ?>" class="btn btn-primary btn-sm">Add User</a>
-					<table id="table-users" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
+					<table id="table-sipandai" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
 						<thead>
 							<tr class="fw-bold fs-6 text-gray-800 px-7">
 								<th>Username</th>
@@ -61,28 +61,6 @@
 <!--end::Content-->
 
 <script>
-	const interval = setInterval(function(){
-		if (typeof $ !== 'undefined' && typeof $.fn.jquery !== 'undefined') {
-			clearInterval(interval);
-			$("#table-users").DataTable({
-				"language": {
-					"lengthMenu": "Show _MENU_",
-				},
-				"dom":
-					"<'row'" +
-					"<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
-					"<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
-					">" +
-		
-					"<'table-responsive'tr>" +
-		
-					"<'row'" +
-					"<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
-					"<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
-					">"
-			});
-		}
-	}, 1000);
 
 	function deleteData(id) {
 		Swal.fire({

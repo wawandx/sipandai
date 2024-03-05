@@ -9,7 +9,7 @@
 				<!--begin::Header-->
 				<div class="card-header align-items-center border-0">
 					<!--begin::Title-->
-					<h3 class="fw-bold text-gray-900 m-0">Add New Guru</h3>
+					<h3 class="fw-bold text-gray-900 m-0"><?php echo $title_modal; ?></h3>
 					<!--end::Title-->
 				</div>
 				<!--end::Header-->
@@ -110,7 +110,7 @@
                                                             </label>
                                                             <!--end::Label-->
                                                             <!--begin::Input-->
-                                                            <input type="text" class="form-control form-control-solid" name="tempat_lahir" value="" />
+                                                            <input type="text" class="form-control form-control-solid" name="tmpat_lahir" value="" />
                                                             <!--end::Input-->
                                                         </div>
                                                         <!--end::Input group-->

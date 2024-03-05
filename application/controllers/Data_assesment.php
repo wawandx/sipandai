@@ -9,8 +9,15 @@ class data_assesment extends CI_Controller {
 		$this->load->view('main/index', $data);
 	}
 
-    // public function data_add(){
-    //     $data['modul'] = $this->load->view('modul/assesor/add', '', TRUE);
-	// 	$this->load->view('main/index', $data);
-    // }
+    public function data_add(){
+		
+		$data['title_modal'] ='Add Data Assessment';
+        $data['modul'] = $this->load->view('modul/assesment/add',  $data, TRUE);
+
+		$this->load->view('main/index', $data);
+    }
+
+	public function data_save(){
+		
+	}
 }
