@@ -56,7 +56,7 @@
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="text" class="form-control form-control-solid" name="indikator" value="<?= $data->indikator ?>"/>
+                                                    <input type="text" class="form-control" name="indikator" value="<?= $data->indikator ?>"/>
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->

@@ -6,89 +6,48 @@ class Asesment extends CI_Controller {
  	{
     	parent::__construct();
     	$this->load->model('M_model');
+			$this->load->model('asesmen_model');
   	}
 
-	public function index(){
-		
-		// //$data_modul['data'] = $this->M_model->get_data_asc('assesmen', 'komponen');
-		$data['modul'] = $this->load->view('modul/assesment_guru/index', '', TRUE);
+	public function index() {
+		$data_modul['data'] = $this->asesmen_model->get_asesmen_guru($this->session->username);
+		$data_modul['data_ada'] = $this->asesmen_model->get_asesmen_guru_ada($this->session->username);
+		$data_modul['data_menunggu'] = $this->asesmen_model->get_asesmen_guru_menunggu($this->session->username);
+		$data['modul'] = $this->load->view('modul/assesment_guru/index', $data_modul, TRUE);
 		$this->load->view('main/index', $data);
 	}
 
-    // public function data_add(){
-		
-    //     $data['modul'] = $this->load->view('modul/assesment/add',  '', TRUE);
-	// 	$this->load->view('main/index', $data);
-    // }
+  public function pengajuan_asesmen() {
+		$data_modul['data'] = $this->asesmen_model->get_asesmen();
+		$data['modul'] = $this->load->view('modul/assesment_guru/pengajuan_asesmen', $data_modul, TRUE);
+		$this->load->view('main/index', $data);
+	}
 
-	// public function data_save(){
-	// 	$this->form_validation->set_rules('komponen', 'Komponen', 'required');
-	// 	$this->form_validation->set_rules('indikator', 'Indikator', 'required');
+	public function post_pengajuan_asesmen() {
+		$data_asesmen = $this->asesmen_model->get_asesmen();
 		
-	// 	$this->form_validation->set_message('required', '{field} harus terisi.');
-
-	// 	if ($this->form_validation->run() == FALSE)
-	// 	{
-	// 		$this->data_add();
-	// 	} else {
-	// 		$data = [
-	// 			'komponen' => $this->input->post('komponen'),
-	// 			'indikator' => $this->input->post('indikator')
-	// 		];
+		$this->db->trans_start();
+		foreach ($data_asesmen->result() as $key => $value) {
+			$data = [
+				'username' => $this->session->username,
+				'id_assesmen' => $value->id,
+				'analisis' => $this->input->post('analisis_'.$value->id),
+				'link_berkas' => $this->input->post('link_berkas_'.$value->id),
+				'status' => 'menunggu'
+			];
 			
-	// 		if ($this->M_model->post('assesmen',$data)) {
-	// 			$this->session->set_flashdata('success_save', TRUE);
-	// 		} else {
-	// 			$this->session->set_flashdata('error_save', TRUE);
-	// 		}
+			$this->asesmen_model->post_assesmen_guru($data);
+		}
+		$this->db->trans_complete();
 
-	// 		redirect('/Data_assesment/index');
-	// 	}
-	// }
+		if ($this->db->trans_status() === FALSE) {
+			$this->db->trans_rollback();
+			$this->session->set_flashdata('error_save', TRUE);
+		} else {
+			$this->db->trans_commit();
+			$this->session->set_flashdata('success_save', TRUE);            
+		}
 
-	// public function get_edit($id){
-	// 	$data_modul['data'] = $this->M_model->get_where('assesmen', $id)->row();
-		
-	// 	$data['modul'] = $this->load->view('modul/assesment/edit', $data_modul, TRUE);
-	// 	$this->load->view('main/index', $data);
-		
-    // }
-
-	// public function data_update($id){
-	// 	$this->form_validation->set_rules('komponen', 'Komponen', 'required');
-	// 	$this->form_validation->set_rules('indikator', 'Indikator', 'required');
-		
-	// 	$this->form_validation->set_message('required', '{field} harus terisi.');
-
-	// 	if ($this->form_validation->run() == FALSE)
-	// 	{
-	// 		$this->data_add();
-	// 	} else {
-	// 		$data = [
-	// 			'indikator' => $this->input->post('indikator')
-	// 		];
-			
-	// 		if ($this->M_model->update('assesmen',$data, $id)) {
-	// 			$this->session->set_flashdata('success_save', TRUE);
-	// 		} else {
-	// 			$this->session->set_flashdata('error_save', TRUE);
-	// 		}
-
-	// 		redirect('/Data_assesment/index');
-	// 	}
-	// }
-
-	// public function delete(){
-	// 	$data = new stdClass();
-	// 	if ($this->M_model->delete($this->input->post('id'), 'assesmen')) {
-	// 		$data->status = "success";	
-	// 		$data->id = $this->input->post('id');
-	// 	} else {
-	// 		$data->status = "failed";	
-	// 		$data->id = $this->input->post('id');	
-	// 	}
-
-	// 	$json = json_encode($data);
-	// 	echo $json;
-	// }
+		redirect('/asesment/index');
+	}
 }

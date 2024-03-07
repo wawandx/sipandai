@@ -18,7 +18,7 @@ class Auth extends CI_Controller {
 		$password=html_escape($this->input->post('password'));
 
 		if(empty($username)){
-			$data['error'] = 'Email belum terisi';
+			$data['error'] = 'Username belum terisi';
 			$this->load->view('main/login', $data);
 		}elseif (empty($password)) {
 			$data['error'] = 'Password belum terisi';
@@ -42,12 +42,12 @@ class Auth extends CI_Controller {
 				} else {
 					$recaptcha = $this->recaptcha->create_box();
 					$data['recaptcha'] = $recaptcha;
-					$data['error'] = 'Maaf Email atau password yang dimasukkan salah';		 
+					$data['error'] = 'Maaf Username atau password yang dimasukkan salah';		 
 					
 					$this->load->view('main/login', $data);
 				}
 			} else {
-				$data['error'] = 'Maaf Email tidak terdaftar';		 
+				$data['error'] = 'Maaf Username tidak terdaftar';		 
 				
 				$this->load->view('main/login', $data);
 			}

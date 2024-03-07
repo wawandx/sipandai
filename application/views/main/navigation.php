@@ -29,7 +29,7 @@
 							<a class="menu-link py-3" href="<?= base_url('data_guru'); ?>">
 								<span class="menu-title">
 									<span class="menu-text">Data Guru</span>
-									<span class="menu-desc">Menu Guru</span>
+									<span class="menu-desc">List Data Guru</span>
 								</span>
 							</a>
 							<!--end:Menu link-->
@@ -42,7 +42,7 @@
 							<a class="menu-link py-3" href="<?= base_url('data_assesor'); ?>">
 								<span class="menu-title">
 									<span class="menu-text">Data Asesor</span>
-									<span class="menu-desc">Menu Asesor</span>
+									<span class="menu-desc">List Data Asesor</span>
 								</span>
 							</a>
 							<!--end:Menu link-->
@@ -55,7 +55,7 @@
 							<a class="menu-link py-3" href="<?= base_url('data_modul'); ?>">
 								<span class="menu-title">
 									<span class="menu-text">Data Modul</span>
-									<span class="menu-desc">Menu Modul</span>
+									<span class="menu-desc">Manajemen Modul</span>
 								</span>
 							</a>
 							<!--end:Menu link-->
@@ -67,8 +67,8 @@
 							<!--begin:Menu link-->
 							<a class="menu-link py-3" href="<?= base_url('data_assesment'); ?>">
 								<span class="menu-title">
-									<span class="menu-text">Data Assesment</span>
-									<span class="menu-desc">Menu Assesment</span>
+									<span class="menu-text">Data Asesmen</span>
+									<span class="menu-desc">Manajemen Asesmen</span>
 								</span>
 							</a>
 							<!--end:Menu link-->
@@ -81,7 +81,7 @@
 							<a class="menu-link py-3" href="<?= base_url('report'); ?>">
 								<span class="menu-title">
 									<span class="menu-text">Report</span>
-									<span class="menu-desc">Menu Report</span>
+									<span class="menu-desc">Download Report</span>
 								</span>
 							</a>
 							<!--end:Menu link-->

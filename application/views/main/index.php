@@ -2,7 +2,7 @@
   $CI =& get_instance();
 
   if ($this->session->username == "" ) {
-    //redirect('auth');
+    redirect('auth');
   }
 ?>
 <!DOCTYPE html>

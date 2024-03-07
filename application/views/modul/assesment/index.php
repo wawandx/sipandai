@@ -26,7 +26,7 @@
 				<!--begin::Body-->
 				<div class="card-body pt-2">
 					<div class="table-responsive">
-						<table id="table-sipandai" class="table">
+						<table id="table-sipandai" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
 							<thead>
 								<tr class="fw-bold fs-5 text-gray-900">
 									<th style="text-align: center;">No</th>
