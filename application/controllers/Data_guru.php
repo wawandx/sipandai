@@ -10,7 +10,7 @@ class data_guru extends CI_Controller {
 
 	public function index(){
 		
-		$data_modul['data'] = $this->M_model->get_data();
+		$data_modul['data'] = $this->M_model->get_data('guru');
 		$data['modul'] = $this->load->view('modul/data_guru/index', $data_modul, TRUE);
 		$this->load->view('main/index', $data);
 
@@ -59,15 +59,15 @@ class data_guru extends CI_Controller {
 		}
     }
 
-    public function get_edit($nip){
-		$data_modul['data'] = $this->M_model->get_where('guru', $nip)->row();
+    public function get_edit($id){
+		$data_modul['data'] = $this->M_model->get_where('guru', $id)->row();
 		
 		$data['modul'] = $this->load->view('modul/data_guru/get', $data_modul, TRUE);
 		$this->load->view('main/index', $data);
 		
     }
 
-	public function data_update($nip){
+	public function data_update($id){
 
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
@@ -80,8 +80,7 @@ class data_guru extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE)
 		{
-			echo "error";
-			// $this->get_edit($nip);
+			$this->get_edit($id);
 		} else {
 			$data = [
 				// 'Nip' 			=> $this->input->post('nip'),
@@ -93,15 +92,14 @@ class data_guru extends CI_Controller {
 				'alamat' 		=> $this->input->post('alamat'),
 			];
 
-			if ($this->M_model->update('guru', $data, $nip)) {
+			if ($this->M_model->update('guru', $data, $id)) {
 				$this->session->set_flashdata('success_save', TRUE);
 			} else {
 				$this->session->set_flashdata('error_save', TRUE);
 			}
 
 			redirect('/Data_guru/index');
-			// echo "<pre>";
-			// print_r($data);
+			
 		}
 	}
 
@@ -109,12 +107,12 @@ class data_guru extends CI_Controller {
 	public function delete()
 	{
 		$data = new stdClass();
-		if ($this->M_model->delete($this->input->post('nip'))) {
+		if ($this->M_model->delete($this->input->post('id'), 'guru')) {
 			$data->status = "success";	
-			$data->id = $this->input->post('nip');
+			$data->id = $this->input->post('id');
 		} else {
 			$data->status = "failed";	
-			$data->id = $this->input->post('nip');	
+			$data->id = $this->input->post('id');	
 		}
 
 		$json = json_encode($data);

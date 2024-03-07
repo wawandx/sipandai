@@ -9,7 +9,7 @@
 				<!--begin::Header-->
 				<div class="card-header align-items-center border-0">
 					<!--begin::Title-->
-					<h3 class="fw-bold text-gray-900 m-0">Add Data Assessment</h3>
+					<h3 class="fw-bold text-gray-900 m-0">Edit Data Assessment</h3>
 					<!--end::Title-->
 				</div>
 				<!--end::Header-->
@@ -30,7 +30,7 @@
                                         <!--begin::Card body-->
                                         <div class="card-body pt-5">
                                             <!--begin::Form-->
-                                            <form class="form" action="<?= base_url('data_assesment/data_save'); ?>" method="post">
+                                            <form class="form" action="<?= base_url('data_assesment/data_update/'.$data->id ); ?>" method="post">
                                                 
                                                 <!--begin::Input group-->
                                                 <div class="fv-row mb-7">
@@ -41,13 +41,7 @@
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <select class="form-select" name="komponen">
-                                                        <option value="">- Pilih Komponen -</option>
-                                                        <option value="Dokumen Administrasi"> Dokumen Administrasi </option>
-                                                        <option value="Dokumen Pembelajaran"> Dokumen Pembelajaran </option>
-                                                        <option value="Dokumen Penilaian"> Dokumen Penilaian </option>
-                                                        <option value="Dokumen Pengembangan Keprofesian Berkelanjutan"> Dokumen Pengembangan Keprofesian Berkelanjutan </option>
-                                                    </select>
+                                                    <input type="text" class="form-control form-control-solid" name="komponen" value="<?= $data->komponen ?>" readonly />
 
                                                     <!--end::Input-->
                                                 </div>
@@ -62,7 +56,7 @@
                                                     <!--end::Label-->
 
                                                     <!--begin::Input-->
-                                                    <input type="text" class="form-control form-control-solid" name="indikator"/>
+                                                    <input type="text" class="form-control form-control-solid" name="indikator" value="<?= $data->indikator ?>"/>
                                                     <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->

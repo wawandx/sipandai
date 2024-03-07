@@ -62,12 +62,12 @@
 										<td><?= $value->alamat ?></td>
 										<td>
 											<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
-												<a href="<?= base_url('data_guru/get_edit/'.$value->nip); ?>" class="btn btn-sm btn-light-warning">
+												<a href="<?= base_url('data_guru/get_edit/'.$value->id); ?>" class="btn btn-sm btn-light-warning">
 													Edit
 												</a>
 											</span>
 
-											<a href='javascript:deleteData("<?= $value->nip ?>");' class='btn btn-sm btn-light-danger'>Delete</a>
+											<a href='javascript:deleteData("<?= $value->id ?>");' class='btn btn-sm btn-light-danger'>Delete</a>
 										</td>
 									</tr>
 								<?php
@@ -90,7 +90,7 @@
 </div>
 <!--end::Content-->
 <script>
-	function deleteData(nip) {
+	function deleteData(id) {
 		Swal.fire({
 			html: `Yakin ingin menghapus data?`,
 			icon: "warning",

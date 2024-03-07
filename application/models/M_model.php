@@ -5,9 +5,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class M_model extends CI_Model
 {
 
-  function get_data()
+  function get_data($table)
   {
-    $query = $this->db->query("SELECT * FROM guru");
+    $query = $this->db->query("SELECT * FROM $table");
+    return $query;
+  }
+
+  function get_data_asc($table, $order_by)
+  {
+    $query = $this->db->query("SELECT * FROM $table ORDER BY $order_by ASC");
+    return $query;
+  }
+
+  function get_data_whare($table)
+  {
+    $query = $this->db->query("SELECT * FROM $table WHERE id_level = '3'");
     return $query;
   }
 
@@ -19,21 +31,21 @@ class M_model extends CI_Model
 
 	function get_where($table, $whare)
 	{
-		$query = $this->db->query("SELECT * FROM $table WHERE nip = '$whare'");
+		$query = $this->db->query("SELECT * FROM $table WHERE id = '$whare'");
 		return $query;
 	}
 
-    function update($table, $data, $nip)
+    function update($table, $data, $id)
 	{
-		$this->db->where('nip', $nip);
+		$this->db->where('id', $id);
 		$this->db->update($table, $data);
 		return $this->db->affected_rows();
 	}
 
-    function delete($nip)
+    function delete($where, $table)
 	{
-		$this->db->where('nip', $nip);
-		$this->db->delete('guru');
+		$this->db->where('id', $where);
+		$this->db->delete($table);
 		return $this->db->affected_rows();
 	}
 
