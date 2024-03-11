@@ -201,17 +201,45 @@
 					<!--begin:Menu item-->
 					<div class="menu-item">
 						<!--begin:Menu link-->
-						<a class="menu-link py-3" href="<?= base_url('hasil_assesment'); ?>">
+						<a class="menu-link py-3" href="<?= base_url('report'); ?>">
 							<span class="menu-title">
-								<span class="menu-text">Hasil Asesment</span>
-								<span class="menu-desc">Hasil Asesment</span>
+								<span class="menu-text">Report</span>
+								<span class="menu-desc">Download Report</span>
 							</span>
 						</a>
 						<!--end:Menu link-->
 					</div>
 					<!--end:Menu item-->
 				<?php
-					}
+					} else if($this->session->id_level == 5) {
+				?>
+					<!--begin:Menu item-->
+					<div class="menu-item">
+						<!--begin:Menu link-->
+						<a class="menu-link py-3" href="<?= base_url('dashboard'); ?>">
+							<span class="menu-title">
+								<span class="menu-text">Home</span>
+								<span class="menu-desc">Menu Utama</span>
+							</span>
+						</a>
+						<!--end:Menu link-->
+					</div>
+					<!--end:Menu item-->
+
+					<!--begin:Menu item-->
+					<div class="menu-item">
+						<!--begin:Menu link-->
+						<a class="menu-link py-3" href="<?= base_url('list_assesment'); ?>">
+							<span class="menu-title">
+								<span class="menu-text">Asesment Guru</span>
+								<span class="menu-desc">List Asesment Guru</span>
+							</span>
+						</a>
+						<!--end:Menu link-->
+					</div>
+					<!--end:Menu item-->
+				<?php
+					} 
 				?>
 			</div>
 			<!--end::Menu-->

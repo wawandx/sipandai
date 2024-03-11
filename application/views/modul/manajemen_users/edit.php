@@ -50,7 +50,7 @@
 							</div>
 							<div class="col-md-6 mb-10">
 								<label class="form-label required">NIP</label>
-								<input type="text" class="form-control" name="nip" placeholder="Masukkan Nip"/>
+								<input type="text" class="form-control" name="nip" value="<?= $data->nip ?>" placeholder="Masukkan Nip"/>
 							</div>
 							
 						</div>

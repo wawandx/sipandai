@@ -22,9 +22,15 @@ class Asesmen_model extends CI_Model
     return $query;
 	}
 
-	function get_asesmen_guru_menunggu($username)
+	function get_asesmen_guru_menunggu_kepsek($username)
 	{
-    $query = $this->db->query("SELECT * FROM assesmen_guru WHERE username='$username' AND status='menunggu'");
+    $query = $this->db->query("SELECT * FROM assesmen_guru WHERE username='$username' AND status='menunggu kepsek'");
+    return $query;
+	}
+
+	function get_asesmen_guru_menunggu_assesor($username)
+	{
+    $query = $this->db->query("SELECT * FROM assesmen_guru WHERE username='$username' AND status='menunggu assesor'");
     return $query;
 	}
 

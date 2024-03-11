@@ -15,6 +15,14 @@
 				<!--end::Header-->
 				<!--begin::Body-->
 				<div class="card-body pt-2">
+					<?php
+						if($this->session->id_level == 5) {
+					?>
+							<a href='javascript:setujui_semua("<?= $username ?>");' class='btn btn-info btn-sm'>Mengetahui Semua</a>
+					<?php
+						}
+					?>
+
 					<table id="table-sipandai" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
 						<thead>
 							<tr class="fw-bold fs-6 text-gray-800 px-7">
@@ -50,11 +58,23 @@
 									<td style="vertical-align: middle"><?= $value->status ?></td>
 									<td style="vertical-align: middle; text-align: center;">
 										<?php
-											if($value->status == 'menunggu') {
+											if($this->session->id_level == 5) {
+												if($value->status == 'menunggu kepsek') {												
 										?>
 												<a href='javascript:tolak("<?= $value->id ?>");' class='btn btn-danger btn-sm'><i class="ki-solid ki-cross-square" style="padding: 0;"></i></a>
-												<a href='javascript:setujui("<?= $value->id ?>");' class='btn btn-primary btn-sm'><i class="ki-solid ki-check-square" style="padding: 0;"></i></a>
+												<a href='javascript:setujui_kepsek("<?= $value->id ?>");' class='btn btn-primary btn-sm'><i class="ki-solid ki-check-square" style="padding: 0;"></i></a>
 										<?php
+												}
+											}
+										?>
+										<?php
+											if($this->session->id_level == 3) {
+												if($value->status == 'menunggu assesor') {												
+										?>
+												<a href='javascript:tolak("<?= $value->id ?>");' class='btn btn-danger btn-sm'><i class="ki-solid ki-cross-square" style="padding: 0;"></i></a>
+												<a href='javascript:setujui_assesor("<?= $value->id ?>");' class='btn btn-primary btn-sm'><i class="ki-solid ki-check-square" style="padding: 0;"></i></a>
+										<?php
+												}
 											}
 										?>
 									</td>
@@ -77,7 +97,7 @@
 <!--end::Content-->
 
 <script>
-	function setujui(id) {
+	function setujui_kepsek(id) {
 		Swal.fire({
 			html: `Setujui data ini?`,
 			icon: "warning",
@@ -94,7 +114,54 @@
 				var request = $.ajax({
 					url: "<?= base_url('list_assesment/setujui'); ?>",
 					method: "POST",
-					data: { id },
+					data: { id, status: 'kepsek' },
+					dataType: "json"
+				});
+				
+				request.done(function( msg ) {
+					if (msg.status == 'success') {
+						Swal.fire(
+							'Berhasil!',
+							'Data berhasil disetujui .',
+							'success'
+						)
+						.then((success_msg) => {
+							window.location = "<?= base_url('list_assesment/detail/'.$username); ?>";
+						})
+					} else {
+						Swal.fire(
+							'Failed!',
+							'Data gagal disetujui.',
+							'error'
+						)
+					}
+				});
+				
+				request.fail(function( jqXHR, textStatus ) {
+					alert( "Request failed: " + textStatus );
+				});
+			}
+		});
+	}
+
+	function setujui_assesor(id) {
+		Swal.fire({
+			html: `Setujui data ini?`,
+			icon: "warning",
+			buttonsStyling: false,
+			showCancelButton: true,
+			confirmButtonText: "Iya, Setujui",
+			cancelButtonText: 'Batal',
+			customClass: {
+					confirmButton: "btn btn-primary",
+					cancelButton: 'btn btn-danger'
+			}
+    }).then((value) => {
+			if(value.isConfirmed) {
+				var request = $.ajax({
+					url: "<?= base_url('list_assesment/setujui'); ?>",
+					method: "POST",
+					data: { id, status: 'assesor' },
 					dataType: "json"
 				});
 				
@@ -159,6 +226,53 @@
 						Swal.fire(
 							'Failed!',
 							'Data gagal ditolak.',
+							'error'
+						)
+					}
+				});
+				
+				request.fail(function( jqXHR, textStatus ) {
+					alert( "Request failed: " + textStatus );
+				});
+			}
+		});
+	}
+
+	function setujui_semua(username) {
+		Swal.fire({
+			html: `Yakin ingin menyetujui semua?`,
+			icon: "warning",
+			buttonsStyling: false,
+			showCancelButton: true,
+			confirmButtonText: "Iya, setujui",
+			cancelButtonText: 'Batal',
+			customClass: {
+					confirmButton: "btn btn-primary",
+					cancelButton: 'btn btn-danger'
+			}
+    }).then((value) => {
+			if(value.isConfirmed) {
+				var request = $.ajax({
+					url: "<?= base_url('list_assesment/setuju_semua/'.$username) ?>",
+					method: "POST",
+					data: { username },
+					dataType: "json"
+				});
+				
+				request.done(function( msg ) {
+					if (msg.status == 'success') {
+						Swal.fire(
+							'Berhasil!',
+							'Data berhasil disetujui .',
+							'success'
+						)
+						.then((success_msg) => {
+							window.location = "<?= base_url('list_assesment/detail/'.$username) ?>";
+						})
+					} else {
+						Swal.fire(
+							'Failed!',
+							'Data gagal disetujui.',
 							'error'
 						)
 					}
