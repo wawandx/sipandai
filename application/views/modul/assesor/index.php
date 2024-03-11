@@ -9,7 +9,7 @@
 				<!--begin::Header-->
 				<div class="card-header align-items-center border-0">
 					<!--begin::Title-->
-					<h3 class="fw-bold text-gray-900 m-0">Data Assesor</h3>
+					<h3 class="fw-bold text-gray-900 m-0">DATA ASSESOR</h3>
 					<!--end::Title-->
 
 					<!-- <div class="card-header border-0 pt-6">
@@ -46,21 +46,9 @@
 									foreach ($data->result() as $value) { ?>
 									<tr>
 										<td><?= $no++ ?></td>
-										<td>nip</td>
+										<td><?= $value->nip ?></td>
 										<td><?= $value->fullname ?></td>
-										<!-- <td>
-											<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
-												<a href="<?= base_url('#'); ?>" class="btn btn-sm btn-light-warning">
-													Edit
-												</a>
-											</span>
-
-											<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
-												<a href="#" class="btn btn-sm btn-light-danger" onclick="return confirm('Anda Yakin menghapus!!')">
-													Hapus
-												</a>
-											</span>
-										</td> -->
+										
 									</tr>
 								<?php } ?>
 								</tbody>

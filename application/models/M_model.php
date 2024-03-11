@@ -11,6 +11,13 @@ class M_model extends CI_Model
     return $query;
   }
 
+  function get_join($table, $join, $on_condition)
+  {
+	$query = $this->db->query("SELECT * FROM $table JOIN $join ON $on_condition");
+    return $query;
+    
+  }
+
   function get_data_asc($table, $order_by)
   {
     $query = $this->db->query("SELECT * FROM $table ORDER BY $order_by ASC");
@@ -29,6 +36,12 @@ class M_model extends CI_Model
 		return $this->db->affected_rows();
 	}
 
+	function get_where_biodata($username)
+	{
+		$query = $this->db->query("SELECT u.*, g.* FROM users u join guru g ON u.username=g.username WHERE u.username = '$username'");
+		return $query;
+	}
+
 	function get_where($table, $whare)
 	{
 		$query = $this->db->query("SELECT * FROM $table WHERE id = '$whare'");
@@ -42,30 +55,18 @@ class M_model extends CI_Model
 		return $this->db->affected_rows();
 	}
 
+	function update_biodata($table, $data, $username)
+	{
+		$this->db->where('username', $username);
+		$this->db->update($table, $data);
+		return $this->db->affected_rows();
+	}
+
     function delete($where, $table)
 	{
 		$this->db->where('id', $where);
 		$this->db->delete($table);
 		return $this->db->affected_rows();
 	}
-
-	// function get_levels()
-	// {
-	// 	$query = $this->db->query("SELECT * FROM level");
-	// 	return $query;
-	// }
-
-	// function post_users($data)
-	// {
-	// 	$this->db->insert('users', $data);
-	// 	return $this->db->affected_rows();
-	// }
-
-	// function update_users($data, $username)
-	// {
-	// 	$this->db->where('username', $username);
-	// 	$this->db->update('users', $data);
-	// 	return $this->db->affected_rows();
-	// }
 
 }

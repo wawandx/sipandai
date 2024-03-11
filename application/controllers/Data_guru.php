@@ -10,12 +10,12 @@ class data_guru extends CI_Controller {
 
 	public function index(){
 		
-		$data_modul['data'] = $this->M_model->get_data('guru');
+		$data_modul['data'] = $this->M_model->get_join('guru', 'users', 'guru.username = users.username');
 		$data['modul'] = $this->load->view('modul/data_guru/index', $data_modul, TRUE);
 		$this->load->view('main/index', $data);
 
 		// echo "<pre>";
-		// print_r($data_modul);
+		// print_r($data_modul['data']);
 	}
 
     public function data_add(){

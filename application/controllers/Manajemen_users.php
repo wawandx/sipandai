@@ -27,6 +27,7 @@ class Manajemen_users extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('fullname', 'Nama Lengkap', 'required');
+		$this->form_validation->set_rules('nip', 'Nip', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('no_telp', 'Nomor Telpon', 'required');
 		$this->form_validation->set_rules('level', 'Level', 'required');
@@ -39,17 +40,25 @@ class Manajemen_users extends CI_Controller {
 			$this->add();
 		} else {
 			$data = [
-				'username' => $this->input->post('username'),
-				'password' => hash('sha256', $this->input->post('password')),
-				'fullname' => $this->input->post('fullname'),
-				'email' => $this->input->post('email'),
-				'no_telp' => $this->input->post('no_telp'),
-				'id_level' => $this->input->post('level'),
-				'alamat' => $this->input->post('alamat'),
-				'status' => 'active'
+				'username' 	=> $this->input->post('username'),
+				'password' 	=> hash('sha256', $this->input->post('password')),
+				'fullname' 	=> $this->input->post('fullname'),
+				'nip' 		=> $this->input->post('nip'),
+				'email' 	=> $this->input->post('email'),
+				'no_telp' 	=> $this->input->post('no_telp'),
+				'id_level' 	=> $this->input->post('level'),
+				'alamat' 	=> $this->input->post('alamat'),
+				'status' 	=> 'active'
 			];
-			
+
+			$data_guru = [
+				'username' => $this->input->post('username')
+			];
+
 			if ($this->users_model->post_users($data)) {
+				if ($this->input->post('level') == '2'){
+					$this->users_model->post_guru($data_guru);
+				}
 				$this->session->set_flashdata('success_save', TRUE);
 			} else {
 				$this->session->set_flashdata('error_save', TRUE);
@@ -70,6 +79,7 @@ class Manajemen_users extends CI_Controller {
 	public function update($username)
 	{
 		$this->form_validation->set_rules('fullname', 'Nama Lengkap', 'required');
+		$this->form_validation->set_rules('nip', 'Nip', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('no_telp', 'Nomor Telpon', 'required');
 		$this->form_validation->set_rules('level', 'Level', 'required');
@@ -82,11 +92,12 @@ class Manajemen_users extends CI_Controller {
 			$this->edit($username);
 		} else {
 			$data = [
-				'fullname' => $this->input->post('fullname'),
-				'email' => $this->input->post('email'),
-				'no_telp' => $this->input->post('no_telp'),
-				'id_level' => $this->input->post('level'),
-				'alamat' => $this->input->post('alamat')
+				'fullname' 	=> $this->input->post('fullname'),
+				'nip' 		=> $this->input->post('nip'),
+				'email' 	=> $this->input->post('email'),
+				'no_telp' 	=> $this->input->post('no_telp'),
+				'id_level' 	=> $this->input->post('level'),
+				'alamat' 	=> $this->input->post('alamat')
 			];
 			
 			if ($this->input->post('password') != "") {
