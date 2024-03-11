@@ -28,6 +28,12 @@ class Users_model extends CI_Model
 		return $this->db->affected_rows();
 	}
 
+	function post_guru($data)
+	{
+		$this->db->insert('guru', $data);
+		return $this->db->affected_rows();
+	}
+
 	function update_users($data, $username)
 	{
 		$this->db->where('username', $username);

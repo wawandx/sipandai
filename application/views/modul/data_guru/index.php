@@ -9,18 +9,10 @@
 				<!--begin::Header-->
 				<div class="card-header align-items-center border-0">
 					<!--begin::Title-->
-					<h3 class="fw-bold text-gray-900 m-0">MANAGEMENT GURU</h3>
+					<h3 class="fw-bold text-gray-900 m-0">DATA GURU</h3>
 					<!--end::Title-->
 
-					<div class="card-header border-0 pt-6">
-						<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-							<!--begin::Add user-->
-								<a href="<?= base_url('data_guru/data_add'); ?>" class="btn btn-primary">
-									<i class="ki-duotone ki-plus fs-2"></i>Add data
-								</a>
-							<!--end::Add user-->
-						</div>
-					</div>
+					
 				</div>
 				<div>
 					
@@ -42,7 +34,6 @@
 										<th style="text-align: center;">Tempat Lahir</th>
 										<th style="text-align: center;">Tanggal Lahir</th>
 										<th style="text-align: center;">Alamat</th>
-										<th style="text-align: center;">Action</th>
 									</tr>
 								</thead>
 								<tbody style="text-align: center;">
@@ -54,21 +45,13 @@
 									<tr>
 										<td><?= $no++ ?></td>
 										<td><?= $value->nip ?></td>
-										<td><?= $value->nama ?></td>
+										<td><?= $value->fullname ?></td>
 										<td><?= $value->email ?></td>
-										<td><?= $value->phone ?></td>
+										<td><?= $value->no_telp ?></td>
 										<td><?= $value->tmpat_lahir ?></td>
 										<td><?= $value->tgal_lahir ?></td>
 										<td><?= $value->alamat ?></td>
-										<td>
-											<span data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-original-title="Edit customer details" data-kt-initialized="1">
-												<a href="<?= base_url('data_guru/get_edit/'.$value->id); ?>" class="btn btn-sm btn-light-warning">
-													Edit
-												</a>
-											</span>
-
-											<a href='javascript:deleteData("<?= $value->id ?>");' class='btn btn-sm btn-light-danger'>Delete</a>
-										</td>
+										
 									</tr>
 								<?php
 									}

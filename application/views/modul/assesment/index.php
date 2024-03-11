@@ -9,7 +9,7 @@
 				<!--begin::Header-->
 				<div class="card-header align-items-center border-0">
 					<!--begin::Title-->
-					<h3 class="fw-bold text-gray-900 m-0">Management Assesment</h3>
+					<h3 class="fw-bold text-gray-900 m-0">MANAGEMENT ASSESMENT</h3>
 					<!--end::Title-->
 
 					<div class="card-header border-0 pt-6">

@@ -49,9 +49,10 @@
 								<input type="text" class="form-control" name="fullname" value="<?= $data->fullname ?>" placeholder="Masukkan Nama Lengkap"/>
 							</div>
 							<div class="col-md-6 mb-10">
-								<label class="form-label required">Email</label>
-								<input type="email" class="form-control" name="email" value="<?= $data->email ?>" placeholder="Masukkan email"/>
+								<label class="form-label required">NIP</label>
+								<input type="text" class="form-control" name="nip" placeholder="Masukkan Nip"/>
 							</div>
+							
 						</div>
 						<div class="row">
 							<div class="col-md-6 mb-10">
@@ -77,8 +78,13 @@
 							</div>
 						</div>
 						<div class="row">
+							<div class="col-md-6 mb-10">
+								<label class="form-label required">Email</label>
+								<input type="email" class="form-control" name="email" value="<?= $data->email ?>" placeholder="Masukkan email"/>
+							</div>
+							<div class="col-md-6 mb-10">
 							<label class="form-label required">Alamat</label>
-							<div class="col-md-12">
+							<!-- <div class="col-md-12"> -->
 								<textarea name="alamat" class="form-control" rows="3"><?= $data->alamat ?></textarea>
 							</div>
 						</div>

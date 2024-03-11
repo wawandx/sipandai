@@ -9,13 +9,22 @@
 				<!--begin::Header-->
 				<div class="card-header align-items-center border-0">
 					<!--begin::Title-->
-					<h3 class="fw-bold text-gray-900 m-0">Manajemen Users</h3>
+					<h3 class="fw-bold text-gray-900 m-0">MANAJEMEN USERS</h3>
 					<!--end::Title-->
+
+					<div class="card-header border-0 pt-6">
+						<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+							<!--begin::Add user-->
+								<a href="<?= base_url('manajemen_users/add') ?>" class="btn btn-primary">
+									<i class="ki-duotone ki-plus fs-2"></i>Add User
+								</a>
+							<!--end::Add user-->
+						</div>
+					</div>
 				</div>
 				<!--end::Header-->
 				<!--begin::Body-->
 				<div class="card-body pt-2">
-					<a href="<?= base_url('manajemen_users/add') ?>" class="btn btn-primary btn-sm">Add User</a>
 					<table id="table-sipandai" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
 						<thead>
 							<tr class="fw-bold fs-6 text-gray-800 px-7">
