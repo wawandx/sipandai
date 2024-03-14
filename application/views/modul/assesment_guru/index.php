@@ -40,8 +40,8 @@
 										<span class="text-light fw-bold fs-3 text-center"><?= $title ?></span>
 										<!--end::Title-->
 										<p class="text-center mt-10 fs-6 text-light">
-											Nilai Assesmen sementara <br><br>
-											<span class="text-center text-light fw-bold fs-2"><?= number_format($nilai, 2, ',', '.') ?></span> <br><br>
+											<!-- Nilai Assesmen sementara <br><br> -->
+											<!-- <span class="text-center text-light fw-bold fs-2"><?= number_format($nilai, 2, ',', '.') ?></span> <br><br> -->
 											<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detail_modal">
 												Detail Asesmen
 											</button>

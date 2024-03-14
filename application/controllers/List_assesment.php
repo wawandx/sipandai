@@ -1,4 +1,7 @@
 <?php
+
+use PhpParser\Node\Stmt\Echo_;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class List_assesment extends CI_Controller {
@@ -14,6 +17,31 @@ class List_assesment extends CI_Controller {
 		$data['modul'] = $this->load->view('modul/list_assesment/index', $data_modul, TRUE);
 		$this->load->view('main/index', $data);
 	}
+
+	// function tidak terpakai
+	// public function perhitungan(){
+	// 	// Mendapatkan daftar nama pengguna dari model
+	// 	$usernames = $this->asesmen_model->get_guru()->result();
+
+	// 	foreach ($usernames as $user) {
+	// 		// Mengambil nama pengguna dari hasil query
+	// 		$username = $user->username;
+
+	// 		// Mendapatkan data asesmen guru untuk setiap nama pengguna
+	// 		$query_data = $this->asesmen_model->get_asesmen_guru($username)->result();
+	// 		$query_ada  = $this->asesmen_model->get_asesmen_guru_ada($username)->result();
+	// 		// Menghitung jumlah total data asesmen guru
+	// 		$total_data = count($query_data);
+	// 		$total_ada = count($query_ada);
+	// 		$nilai = ($total_ada/$total_data)*100;
+
+	// 		$nilai_per_user[$username] = $nilai;
+			
+	// 	}
+
+	// 	return $nilai_per_user;
+
+	// }
 
 	public function detail($username)
 	{

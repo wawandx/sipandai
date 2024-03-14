@@ -10,6 +10,12 @@ class Asesmen_model extends CI_Model
     return $query;
   }
 
+  function get_guru()
+	{
+    $query = $this->db->query("SELECT username FROM users WHERE id_level='2'");
+    return $query;
+	}
+
 	function get_asesmen_guru($username)
 	{
     $query = $this->db->query("SELECT ag.*,a.komponen, a.indikator FROM assesmen_guru ag LEFT JOIN assesmen a ON ag.id_assesmen=a.id WHERE ag.username='$username'");

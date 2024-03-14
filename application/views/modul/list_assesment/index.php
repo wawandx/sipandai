@@ -21,14 +21,30 @@
 								<th>No.</th>
 								<th>Nama Lengkap</th>
 								<th>Status</th>
+								<th>Predikat</th>
 								<th>Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php
+								
 								$CI =& get_instance();
 								$i = 1;
 								foreach ($data->result() as $value) {
+									$total_data = $this->asesmen_model->get_asesmen_guru($value->username)->num_rows();
+									$total_ada = $this->asesmen_model->get_asesmen_guru_ada($value->username)->num_rows();
+									$nilai = ($total_ada/$total_data)*100;
+
+									if ($nilai > 86){
+										$predikat = 'Profesional';
+									}elseif($nilai >= 71){
+										$predikat = 'Layak';
+									}elseif($nilai >= 56){
+										$predikat = 'pembinaan';
+									}elseif($nilai < 56){
+										$predikat = 'Dipertimbangkan'; 
+									}
+									
 									$keseluruhan = $CI->asesmen_model->get_asesmen_guru($value->username)->num_rows();
 									$ada = $CI->asesmen_model->get_asesmen_guru_ada($value->username)->num_rows();
 									$status = '';
@@ -42,6 +58,11 @@
 									<td style="vertical-align: middle"><?= $i ?></td>
 									<td style="vertical-align: middle"><?= $value->fullname ?></td>
 									<td style="vertical-align: middle"><?= $status ?></td>
+									<td style="vertical-align: middle">
+										<?php  
+											echo 	$predikat. ' - '. number_format($nilai, 2, ',', '.'); 										
+										?>
+									</td>
 									<td style="vertical-align: middle">
 										<a href="<?= base_url('list_assesment/detail/'.$value->username) ?>" class="btn btn-primary btn-sm">Detail</a>	
 									</td>
